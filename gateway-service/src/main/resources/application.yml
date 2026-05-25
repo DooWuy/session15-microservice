@@ -1,0 +1,18 @@
+server:
+    port: 8080
+
+spring:
+    application:
+        name: gateway-service
+    cloud:
+        gateway:
+            routes:
+                - id: course-service-route
+                  uri: http://localhost:8082
+                  predicates:
+                      - Path=/api/courses/**
+
+app:
+    jwt:
+
+        secret: "YourSuperSecretKeyForJWTGenerationThatIsVeryLongAndSecure"
